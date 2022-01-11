@@ -39,7 +39,7 @@ nps_moe_test <- function(p_0, n_0, d_0,
   if (NA %in% c(p_0, n_0, d_0, p_1, n_1, d_1)) {
     return(0)
   }
-  
+
   t_0 <- p_0 + n_0 + d_0
   if (t_0 == 0) {
     return(0)
@@ -50,17 +50,19 @@ nps_moe_test <- function(p_0, n_0, d_0,
     return(0)
   }
   nps_1 <- (p_1 - d_1) / t_1
-  
+
   var_0 <- ((1 - nps_0)^2 * p_0 + nps_0^2 * n_0 + (-1 - nps_0)^2 * d_0) / t_0
   var_1 <- ((1 - nps_1)^2 * p_1 + nps_1^2 * n_1 + (-1 - nps_1)^2 * d_1) / t_1
-  
+
   se_0 <- sqrt(var_0 / t_0)
   se_1 <- sqrt(var_1 / t_1)
-  
+
   if (abs(nps_0 - nps_1) > z_val * sqrt(se_0^2 + se_1^2)) {
     if (nps_0 > nps_1) {
       return(1)
     }
     return(-1)
+  } else {
+    0
   }
 }

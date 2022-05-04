@@ -1,4 +1,4 @@
-Package: NpsMoeTest
+Package: sigtest
 Type: Package
 Title: Calculate Whether Net Promoter Score Has Significantly Changed Between 2 Samples
 Version: 1.0.0
